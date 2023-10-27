@@ -58,7 +58,7 @@ const List: FC<ListProps> = ({ source }) => {
           // @ts-expect-error
           columns={columns}
           data={source}
-          filterKey="full_name"
+          filterKey="source"
         />
       </div>
     </>

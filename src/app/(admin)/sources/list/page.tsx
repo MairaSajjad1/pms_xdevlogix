@@ -20,9 +20,10 @@ async function getSources() {
         },
       }
     );
-
+    // console.log("API Response:", response.data);
     return response.data.data;
   } catch (error) {
+    console.error("API Request Error:", error);
     return [];
   }
 }
