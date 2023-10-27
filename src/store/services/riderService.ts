@@ -1,5 +1,5 @@
 import { addTokenToRequest } from "@/lib/utils";
-import { Rider } from "@/views/riders";
+import { Rider } from "@/views/lease";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const riderService = createApi({
@@ -52,5 +52,10 @@ const riderService = createApi({
   }),
 });
 
-export const { useCreateRiderMutation, useGetRidersQuery , useUpdateRiderMutation ,  useDeleteRiderMutation } = riderService;
+export const {
+  useCreateRiderMutation,
+  useGetRidersQuery,
+  useUpdateRiderMutation,
+  useDeleteRiderMutation,
+} = riderService;
 export default riderService;

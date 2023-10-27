@@ -1,8 +1,12 @@
-import { Product } from "@/views/products-list";
+// import { Product } from "@/views/products-list";
 import { create } from "zustand";
 
+interface Product {
+  a: string;
+}
+
 interface IProduct {
-  product: Product | null;
+  product: {} | null;
   setProduct: (arg: Product) => void;
 }
 
