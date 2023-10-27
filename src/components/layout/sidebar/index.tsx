@@ -123,25 +123,8 @@ const Sidebar: FC<SidebarProps> = ({
           icon: <Rider size={20} />,
           slug: "/leases/list",
         },
-        { label: "Suppliers", icon: <UnitIcon />, slug: "/contacts/suppliers" },
       ],
-    },
-    {
-      label: "Settings",
-      icon: <Settings size={20} />,
-      childrens: [
-        {
-          label: "Business",
-          icon: <Buisness size={20} />,
-          slug: "/settings/buisnesses",
-        },
-      ],
-    },
-    {
-      label: "Reports",
-      icon: <Report size={20} />,
-      slug: "/reports",
-    },
+    }
   ];
 
   const toggleIsHovered = () => {
