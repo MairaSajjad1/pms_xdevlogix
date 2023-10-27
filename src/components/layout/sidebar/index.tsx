@@ -60,17 +60,17 @@ const Sidebar: FC<SidebarProps> = ({
 }) => {
   const navBarItems = [
     { label: "Dashboard", icon: <Dashboard size={20} />, slug: "/dashboard" },
-    {
-      label: "Customers",
-      icon: <UserManagementIcon />,
-      childrens: [
-        {
-          label: "Users",
-          icon: <UserCircle size={20} />,
-          slug: "/customer/users",
-        },
-      ],
-    },
+    // {
+    //   label: "Customers",
+    //   icon: <UserManagementIcon />,
+    //   childrens: [
+    //     {
+    //       label: "Users",
+    //       icon: <UserCircle size={20} />,
+    //       slug: "/customer/users",
+    //     },
+    //   ],
+    // },
     {
       label: "Tenants",
       icon: <ServicesIcon />,
@@ -78,7 +78,7 @@ const Sidebar: FC<SidebarProps> = ({
         {
           label: "Tenants list",
           icon: <ServiceIcon />,
-          slug: "/tenants/tenants-list",
+          slug: "/tenants/list",
         },
       ],
     },
@@ -89,7 +89,18 @@ const Sidebar: FC<SidebarProps> = ({
         {
           label: "Landlord List",
           icon: <Products size={20} />,
-          slug: "/landlords/landlords-list",
+          slug: "/landlords/list",
+        },
+      ],
+    },
+    {
+      label: "Sources",
+      icon: <OrderIcon />,
+      childrens: [
+        {
+          label: "Sources List",
+          icon: <ListIcon />,
+          slug: "/sources/list",
         },
       ],
     },
