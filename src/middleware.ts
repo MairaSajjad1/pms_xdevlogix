@@ -1,15 +1,15 @@
 // import { getServerSession } from "next-auth";
-// import { getToken } from "next-auth/jwt";
+import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 // import { authOptions } from "./lib/auth";
 
-// const secret = process.env.NEXTAUTH_SECRET || "4~>6,NLmj&S|L@v&*:x/ny_kx";
+const secret = process.env.NEXTAUTH_SECRET || "4~>6,NLmj&S|L@v&*:x/ny_kx";
 export default async function middleware(req: NextRequest) {
-//   const path = req.nextUrl.pathname;
-//   const token = await getToken({
-//     req,
-//     secret,
-//   });
+  const path = req.nextUrl.pathname;
+  const token = await getToken({
+    req,
+    secret,
+  });
 
 //   if (!token && path !== "/") {
 //     return NextResponse.redirect(new URL("/", req.url));

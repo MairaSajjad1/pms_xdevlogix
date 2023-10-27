@@ -107,6 +107,11 @@ const Sidebar: FC<SidebarProps> = ({
           icon: <ListIcon />,
           slug: "/orders/orders-list",
         },
+        {
+          label: "Property types",
+          icon: <ListIcon />,
+          slug: "/orders/orders-list",
+        },
       ],
     },
     {
