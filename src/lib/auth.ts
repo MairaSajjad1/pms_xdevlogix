@@ -6,7 +6,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
     maxAge: 24 * 60 * 60,
   },
-  secret: process.env.NEXTAUTH_SECRET, 
+  secret: process.env.NEXTAUTH_SECRET || "4~>6,NLmj&S|L@v&*:x/ny_kx",
   debug: process.env.NODE_ENV !== "production",
   providers: [
     CredentialsProvider({
@@ -36,14 +36,10 @@ export const authOptions: NextAuthOptions = {
               }),
             }
           );
-
-          console.log("API Response:", response);
-
           const { user, token } = await response.json();
 
-          if (response.status === 201 && user && token) {
-            //API response has 'user' and 'token'
-            return user as User; 
+          if (user && token) {
+            return { ...user, token } as User;
           }
           return null;
         } catch (err) {
@@ -62,6 +58,6 @@ export const authOptions: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: "/", 
+    signIn: "/",
   },
 };

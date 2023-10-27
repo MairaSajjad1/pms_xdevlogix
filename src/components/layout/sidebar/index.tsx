@@ -115,10 +115,14 @@ const Sidebar: FC<SidebarProps> = ({
       ],
     },
     {
-      label: "events",
+      label: "Leases",
       icon: <Contacts size={20} />,
       childrens: [
-        { label: "Rider", icon: <Rider size={20} />, slug: "/contacts/riders" },
+        {
+          label: "Leases List",
+          icon: <Rider size={20} />,
+          slug: "/leases/list",
+        },
         { label: "Suppliers", icon: <UnitIcon />, slug: "/contacts/suppliers" },
       ],
     },
@@ -142,7 +146,6 @@ const Sidebar: FC<SidebarProps> = ({
 
   const toggleIsHovered = () => {
     if (!open) toggleOpen();
-
   };
 
   const sidebarContainerClasses = classNames(

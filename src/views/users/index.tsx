@@ -13,7 +13,6 @@ import Modal from "@/components/modal";
 import DeleteModal from "@/components/modal/delete-modal";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import UserForm from "./userForm";
 import { useGetUsersQuery } from "@/store/services/userService";
 
 export interface User {
@@ -186,12 +185,7 @@ const Users: FC = () => {
           filterKey="name"
         />
       </div>
-      <Modal
-        title={selectedUser ? "Update User" : "Add New User"}
-        open={open}
-        setOpen={toggleModal}
-        body={<UserForm setOpen={toggleModal} data={selectedUser} />}
-      />
+
       <DeleteModal
         open={openDelete}
         setOpen={toggleDeleteModal}

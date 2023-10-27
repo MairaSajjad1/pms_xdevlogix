@@ -40,7 +40,6 @@ import { format } from "date-fns";
 import { useEffect } from "react";
 import { useCreatePurchaseMutation } from "@/store/services/purchaseService";
 import toast from "react-hot-toast";
-import ProductInputs from "./ProductInputs";
 import { useRouter } from "next/navigation";
 import { log } from "console";
 import usePurchase from "@/hooks/usePurchase";
@@ -88,7 +87,7 @@ const formSchema = z.object({
 const Create = () => {
   const { data: session } = useSession();
 
-  const {purchase} = usePurchase();
+  const { purchase } = usePurchase();
   const router = useRouter();
 
   const {
@@ -142,14 +141,12 @@ const Create = () => {
           quantity: "",
         },
       ],
-      business_id: session?.user?.business_id, 
-      created_by: session?.user?.customer_id,  
+      business_id: session?.user?.business_id,
+      created_by: session?.user?.customer_id,
     },
   });
 
   const [create, createResponse] = useCreatePurchaseMutation();
-  
-  
 
   const {
     isLoading: createLoading,
@@ -182,15 +179,14 @@ const Create = () => {
   };
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-     console.log("Form Data:", values); 
-     if (purchase === null){
+    console.log("Form Data:", values);
+    if (purchase === null) {
       create({
-          data: values,
-        });
-       }
-     else{
+        data: values,
+      });
+    } else {
       toast.success("Update");
-     }
+    }
     // create({
     //   data: values,
     // });
@@ -199,15 +195,14 @@ const Create = () => {
   return (
     <div className="bg-[#FFFFFF] p-2 rounded-md overflow-hidden space-y-4">
       <h1 className="text-[#4741E1] font-semibold">
-        
-      {purchase ? "Edit Purchase" : "Add New Purchase"}
+        {purchase ? "Edit Purchase" : "Add New Purchase"}
       </h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="gap-4 grid grid-cols-3 justify-center items-center"
         >
-          <div className="col-span-3 gap-4 flex flex-col">
+          {/* <div className="col-span-3 gap-4 flex flex-col">
             {fields.map((field, index) => (
               <ProductInputs
                 key={field.id}
@@ -216,7 +211,7 @@ const Create = () => {
                 index={index}
               />
             ))}
-          </div>
+          </div> */}
 
           <div className="col-span-3 flex items-center justify-center">
             <Button type="button" onClick={handleAppend}>
