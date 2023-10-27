@@ -35,6 +35,15 @@ const List: FC<ListProps> = ({ leases }) => {
         enableHiding: false,
       },
       {
+        accessorKey: "name",
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Property" />
+        ),
+        cell: ({ row }) => <div>{row.getValue("name")}</div>,
+        enableSorting: true,
+        enableHiding: false,
+      },
+      {
         accessorKey: "full_name",
         header: ({ column }) => (
           <DataTableColumnHeader column={column} title="Name" />

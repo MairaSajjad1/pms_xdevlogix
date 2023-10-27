@@ -24,3 +24,18 @@ export interface Lease {
   remaining_amount: number;
   image_url: string;
 }
+
+export interface Installment {
+  id: number;
+  bussniess_id: number;
+  rent_leases_id: number;
+  due_date: string;
+  status: string;
+  monthly: string;
+  payment: string;
+  rem_payment: string;
+  paid_rent_payment: string;
+  update_payment_status: string;
+  created_at: string;
+  updated_at: string;
+}
