@@ -37,9 +37,6 @@ export function DataTableRowActions<TData>({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-[160px]">
-          <DropdownMenuItem asChild>
-            <Link href={`/leases/list/installments/${id}`}>Installment</Link>
-          </DropdownMenuItem>
           <DropdownMenuItem onClick={() => editAction(row.original)}>
             Edit
           </DropdownMenuItem>

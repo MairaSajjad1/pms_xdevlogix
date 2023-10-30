@@ -6,6 +6,15 @@ import { ColumnDef } from "@tanstack/react-table";
 import { FC, useMemo } from "react";
 import { Separator } from "@/components/ui/separator";
 import Table from "@/components/table";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BiDotsHorizontalRounded as DotsHorizontal } from "react-icons/bi";
+import { Button } from "@/components/ui/button";
 
 interface Installments {
   installments: Installment[];
@@ -63,11 +72,22 @@ const Installments: FC<Installments> = ({ installments }) => {
       {
         id: "actions",
         cell: ({ row }) => (
-          <DataTableRowActions
-            deleteAction={() => {}}
-            editAction={() => {}}
-            row={row}
-          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+              >
+                <DotsHorizontal className="h-4 w-4" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-[160px]">
+              <DropdownMenuItem>Edit</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Delete</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ),
       },
     ],
