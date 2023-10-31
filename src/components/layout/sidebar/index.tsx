@@ -140,6 +140,17 @@ const Sidebar: FC<SidebarProps> = ({
           slug: "/leases/list",
         },
       ],
+    },
+    {
+      label: "Lead",
+      icon: <Contacts size={20} />,
+      childrens: [
+        {
+          label: "Lead List",
+          icon: <Rider size={20} />,
+          slug: "/leads/list",
+        },
+      ],
     }
   ];
 

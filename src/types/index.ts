@@ -234,3 +234,28 @@ export interface PropertyDetails2 {
   amenities: Amenities
   property_images: PropertyImages
 }
+
+export interface Lead {
+  id: number
+  bussniess_id: number
+  assign_id: number
+  source_id: number
+  status_id: number
+  cus_status: string
+  client_name: string
+  client_contact: string
+  client_mail: string
+  address_1: string
+  address_2: any
+  city: string
+  state: string
+  country: string
+  zip_code: string
+  remark: string
+  created_at: string
+  updated_at: string
+  leadtypes_id: number
+  status_name: string
+  source_name: string
+  assign_name: string
+}
