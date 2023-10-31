@@ -1,14 +1,11 @@
 "use client";
 import { DataTableColumnHeader } from "@/components/table/data-table-column-header";
 import { DataTableRowActions } from "@/components/table/data-table-row-actions";
-import { Button } from "@/components/ui/button";
-import { Lease } from "@/types";
-import { GoPlusCircle as PlusCircle } from "react-icons/go";
+import { Installment, Lease } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { FC, useMemo } from "react";
 import { Separator } from "@/components/ui/separator";
 import Table from "@/components/table";
-import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,65 +14,57 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { BiDotsHorizontalRounded as DotsHorizontal } from "react-icons/bi";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-interface ListProps {
-  leases: Lease[];
+interface Installments {
+  installments: Installment[];
 }
 
-const List: FC<ListProps> = ({ leases }) => {
-  const columns: ColumnDef<Lease>[] = useMemo(
+const Installments: FC<Installments> = ({ installments }) => {
+  const columns: ColumnDef<Installment>[] = useMemo(
     () => [
       {
-        accessorKey: "image_url",
+        accessorKey: "due_date",
         header: ({ column }) => (
-          <DataTableColumnHeader column={column} title="Image" />
+          <DataTableColumnHeader column={column} title="Due Date" />
         ),
-        cell: ({ row }) => (
-          <Image
-            src={row.getValue("image_url")}
-            alt={row.getValue("name")}
-            width={40}
-            height={40}
-            className="rounded-full object-contain"
-          />
-        ),
-        enableSorting: true,
-        enableHiding: false,
-      },
-      {
-        accessorKey: "name",
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} title="Property" />
-        ),
-        cell: ({ row }) => <div>{row.getValue("name")}</div>,
-        enableSorting: true,
-        enableHiding: false,
-      },
-      {
-        accessorKey: "full_name",
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} title="Name" />
-        ),
-        cell: ({ row }) => <div>{row.getValue("full_name")}</div>,
-        enableSorting: true,
-        enableHiding: false,
-      },
-      {
-        accessorKey: "lease_start",
-        header: ({ column }) => (
-          <DataTableColumnHeader column={column} title="Start Date" />
-        ),
-        cell: ({ row }) => <div>{row.getValue("lease_start")}</div>,
+        cell: ({ row }) => <div>{row.getValue("due_date")}</div>,
         enableSorting: true,
         enableHiding: true,
       },
       {
-        accessorKey: "lease_end",
+        accessorKey: "payment",
         header: ({ column }) => (
-          <DataTableColumnHeader column={column} title="End Date" />
+          <DataTableColumnHeader column={column} title="Payment" />
         ),
-        cell: ({ row }) => <div>{row.getValue("lease_end")}</div>,
+        cell: ({ row }) => <div>{row.getValue("payment")}</div>,
+        enableSorting: true,
+        enableHiding: true,
+      },
+      {
+        accessorKey: "paid_rent_payment",
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Paid Payment" />
+        ),
+        cell: ({ row }) => <div>{row.getValue("paid_rent_payment")}</div>,
+        enableSorting: true,
+        enableHiding: false,
+      },
+      {
+        accessorKey: "rem_payment",
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Remaining Payment" />
+        ),
+        cell: ({ row }) => <div>{row.getValue("rem_payment")}</div>,
+        enableSorting: true,
+        enableHiding: true,
+      },
+      {
+        accessorKey: "status",
+        header: ({ column }) => (
+          <DataTableColumnHeader column={column} title="Status" />
+        ),
+        cell: ({ row }) => <div>{row.getValue("status")}</div>,
         enableSorting: true,
         enableHiding: true,
       },
@@ -94,12 +83,6 @@ const List: FC<ListProps> = ({ leases }) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
-              <DropdownMenuItem asChild>
-                <Link href={`/leases/list/installments/${row.original.id}`}>
-                  Installment
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
               <DropdownMenuItem>Edit</DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Delete</DropdownMenuItem>
@@ -108,31 +91,33 @@ const List: FC<ListProps> = ({ leases }) => {
         ),
       },
     ],
-    [leases]
+    [installments]
   );
   return (
     <>
       <div className="bg-[#FFFFFF] p-2 rounded-md overflow-hidden space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="font-semibold text-xl text-[#4741E1]">Leases</h1>
-            <p className="font-medium text-sm">A List of all Leases</p>
+            <h1 className="font-semibold text-xl text-[#4741E1]">
+              Installments
+            </h1>
+            <p className="font-medium text-sm">A List of all Installments</p>
           </div>
-          <Button size={"sm"}>
+          {/* <Button size={"sm"}>
             <PlusCircle className="mr-2 w-4 h-4" />
             Add Lease
-          </Button>
+          </Button> */}
         </div>
         <Separator />
         <Table
           // @ts-expect-error
           columns={columns}
-          data={leases}
-          filterKey="full_name"
+          data={installments}
+          //   filterKey="due_date"
         />
       </div>
     </>
   );
 };
 
-export default List;
+export default Installments;

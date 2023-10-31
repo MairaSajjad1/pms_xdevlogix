@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { FC, ReactNode, useCallback } from "react";
 import classNames from "classnames";
 import Sidebar from "@/components/layout/sidebar";

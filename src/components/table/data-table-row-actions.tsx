@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import Link from "next/link";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
@@ -20,6 +21,9 @@ export function DataTableRowActions<TData>({
   editAction = () => {},
   deleteAction = () => {},
 }: DataTableRowActionsProps<TData>) {
+  const { original } = row;
+  // @ts-ignore
+  const { id } = original;
   return (
     <>
       <DropdownMenu>
