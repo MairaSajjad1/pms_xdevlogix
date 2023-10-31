@@ -159,4 +159,33 @@ export interface PropertyImages {
   updated_at: string
   image_url: string
 }
+export interface PropertyList {
+  id: number
+  name: string
+  rent: string
+  propertytype_id: number
+  landlord_id: number
+  area: string
+  agency: string
+  deposit: string
+  description: string
+  property_status: number
+  bussniess_id: number
+  created_at: string
+  updated_at: string
+  rent_sale: string
+  amenities: Amenities
+  property_images: PropertyImages
+  location: Location
+  propertytype: Propertytype
+  landlord: Landlord
+}
+export interface Propertytype {
+  id: number
+  type: string
+  description: any
+  bussniess_id: number
+  created_at: string
+  updated_at: string
+}
 
