@@ -189,3 +189,48 @@ export interface Propertytype {
   updated_at: string
 }
 
+export interface PropertyInventory {
+  id: number
+  property_id: number
+  propertyunit_id: number
+  description: string
+  unit: string
+  image: any
+  bussniess_id: number
+  created_at: string
+  updated_at: string
+  image_url: string
+  property_details: PropertyDetails
+  property_units: PropertyUnits
+}
+export interface PropertyUnits {
+  id: number
+  title: string
+  description: string
+  image: any
+  created_at: string
+  updated_at: string
+  property_id: number
+  bussniess_id: number
+  image_url: string
+  property_details: PropertyDetails2
+}
+export interface PropertyDetails2 {
+  id: number
+  name: string
+  rent: string
+  propertytype_id: number
+  landlord_id: number
+  area: string
+  agency: string
+  deposit: string
+  description: string
+  property_status: number
+  bussniess_id: number
+  created_at: string
+  updated_at: string
+  rent_sale: string
+  location: Location
+  amenities: Amenities
+  property_images: PropertyImages
+}

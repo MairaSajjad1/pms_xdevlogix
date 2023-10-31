@@ -6,3 +6,4 @@ export const GET_SOURCE = "api/sources";
 export const GET_PROPERTY_TYPES= "api/property-types";
 export const GET_PROPERTY_UNITS= "api/property-units";
 export const GET_PROPERTY_LIST= "api/properties";
+export const GET_PROPERTY_INVENTORY="api/inventories";
