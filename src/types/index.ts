@@ -85,3 +85,78 @@ export interface Installment {
   created_at: string;
   updated_at: string;
 }
+
+export interface PropertyType {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
+export interface PropertyUnit {
+  id: number
+  title: string
+  description: string
+  image: any
+  created_at: string
+  updated_at: string
+  property_id: number
+  bussniess_id: number
+  image_url: string
+  property_details: PropertyDetails
+}
+
+export interface PropertyDetails {
+  id: number
+  name: string
+  rent: string
+  propertytype_id: number
+  landlord_id: number
+  area: string
+  agency: string
+  deposit: string
+  description: string
+  property_status: number
+  bussniess_id: number
+  created_at: string
+  updated_at: string
+  rent_sale: string
+  location: Location
+  amenities: Amenities
+  property_images: PropertyImages
+}
+
+export interface Location {
+  id: number
+  property_id: number
+  search: string
+  address: string
+  city: string
+  state: string
+  post: string
+  created_at: string
+  updated_at: string
+}
+
+export interface Amenities {
+  id: number
+  property_id: number
+  propertynote: string
+  age: string
+  room: string
+  bedroom: any
+  bathroom: any
+  animities: string
+  created_at: string
+  updated_at: string
+}
+
+export interface PropertyImages {
+  id: number
+  property_id: number
+  propertyimage: string
+  created_at: string
+  updated_at: string
+  image_url: string
+}
+

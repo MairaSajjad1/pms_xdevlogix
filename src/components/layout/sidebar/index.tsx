@@ -111,17 +111,17 @@ const Sidebar: FC<SidebarProps> = ({
         {
           label: "Property List",
           icon: <ListIcon />,
-          slug: "/orders/orders-list",
+          slug: "/property/list",
         },
         {
           label: "Property units",
           icon: <ListIcon />,
-          slug: "/orders/orders-list",
+          slug: "/property/unit",
         },
         {
           label: "Property types",
           icon: <ListIcon />,
-          slug: "/orders/orders-list",
+          slug: "/property/type",
         },
       ],
     },
