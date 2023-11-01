@@ -51,7 +51,7 @@ const Dashboard = () => {
               <ProductIcon color={"#FD2254"} size={20} />
             </div>
             <div className="flex flex-col justify-between">
-              <h3 className="text-[#92959E] font-semibold text-sm">Agents</h3>
+              <h3 className="text-[#92959E] font-semibold text-sm">Leads</h3>
               <h1 className="text-[#15192C]">00</h1>
             </div>
           </div>
