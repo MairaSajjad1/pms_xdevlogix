@@ -56,19 +56,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {/* <Chart heading="Sales Report" data={salesData} />
-        <Chart heading="Active Users" data={usersData} /> */}
-
-        {/* <div className="bg-[#FFFFFF] p-4 rounded-2xl">
-          <Table
-            // @ts-expect-error
-            columns={columns}
-            data={
-              ordersLoading || ordersFetching ? loadingData : ordersList || []
-            }
-            filterKey="address"
-          />
-        </div> */}
+        
       </div>
     </>
   );
